@@ -10,7 +10,7 @@ const SITE_TEXT = {
   // After setting up the Google Apps Script (see GOOGLE-APPS-SCRIPT.js),
   // paste the Web App URL here.
   // It looks like: https://script.google.com/macros/s/XXXXX.../exec
-  appsScriptUrl: "PASTE_YOUR_APPS_SCRIPT_URL_HERE",
+  appsScriptUrl: "https://script.google.com/macros/s/AKfycbzfJnVRape394Pjpuq-nj74LrYTzSJc7P-iVJei4uNblviZZCW1LLulDIjZlTUB3-g/exec",
 
   // Admin panel link shown in site footer — paste same URL as above
   adminUrl: "",
