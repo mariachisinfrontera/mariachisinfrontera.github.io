@@ -1,7 +1,7 @@
 // ╔══════════════════════════════════════════════════════════════════╗
 // ║   MARIACHI SIN FRONTERA — WEBSITE TEXT & SETTINGS               ║
 // ║   This is the ONLY file you need to edit for most changes.      ║
-// ║   After editing: save, then re-upload msf5 folder to Netlify.   ║
+// ║   After editing: save, then re-upload msf6 folder to GitHub.   ║
 // ╚══════════════════════════════════════════════════════════════════╝
 
 const SITE_TEXT = {
@@ -10,11 +10,14 @@ const SITE_TEXT = {
   // After setting up the Google Apps Script (see GOOGLE-APPS-SCRIPT.js),
   // paste the Web App URL here.
   // It looks like: https://script.google.com/macros/s/XXXXX.../exec
-  appsScriptUrl: "https://script.google.com/macros/s/AKfycbzfJnVRape394Pjpuq-nj74LrYTzSJc7P-iVJei4uNblviZZCW1LLulDIjZlTUB3-g/exec",
+  appsScriptUrl: "PASTE_YOUR_APPS_SCRIPT_URL_HERE",
+
+  // Admin panel link shown in site footer — paste same URL as above
+  adminUrl: "",
 
   // ── CONTACT INFO ─────────────────────────────────────────────────
   phone:    "(250) 000-0000",
-  email:    "davidjamesmorris2@gmail.com",
+  email:    "mariachisinfrontera@gmail.com",
   location: "Victoria, BC, Canada",
 
   // ── SOCIAL MEDIA LINKS ───────────────────────────────────────────
@@ -53,8 +56,8 @@ const SITE_TEXT = {
   bandPhoto: "band-main.jpg",
 
   about: {
-    lead:       "Mariachi Sin Frontera — Without Borders — carries the soul of traditional Mexican Mariachi music to every corner of Victoria, BC, Vancouver Island and beyond.",
-    paragraph1: "Dressed in striking black Charros adorned with silver accents and bold bow ties, we bring the fire, romance, and joy of authentic Mariachi to weddings, quinceañeras, festivals, private events, and cultural celebrations.",
+    lead:       "Mariachi Sin Frontera — Without Borders — carries the soul of traditional Mexican Mariachi music to every corner of Victoria and beyond.",
+    paragraph1: "Dressed in striking black Charro suits adorned with silver accents and bold bow ties, we bring the fire, romance, and joy of authentic Mariachi to weddings, quinceañeras, festivals, private events, and cultural celebrations.",
     paragraph2: "From classic rancheras and boleros to beloved sones jaliscienses, our repertoire spans the full richness of the Mariachi tradition — performed with passion, precision, and pride."
   },
 
@@ -62,7 +65,7 @@ const SITE_TEXT = {
   // photo: filename in images/ folder, OR a full Google Drive image link
   // Leave as "" for a placeholder icon
   members: [
-    { name: "David", role: "Trumpet · Director", bio: "Add a short biography about this member.", photo: "" },
+    { name: "Member Name", role: "Trumpet · Director", bio: "Add a short biography about this member.", photo: "" },
     { name: "Member Name", role: "Violin",              bio: "Add a short biography about this member.", photo: "" },
     { name: "Member Name", role: "Guitarrón",           bio: "Add a short biography about this member.", photo: "" },
     { name: "Member Name", role: "Vihuela",             bio: "Add a short biography about this member.", photo: "" },
