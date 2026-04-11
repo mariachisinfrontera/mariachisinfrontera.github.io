@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mariachi Sin Frontera — Victoria, BC</title>
+  <meta name="description" content="Traditional Mexican Mariachi music for weddings, festivals, and events in Victoria, BC."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<header id="site-nav">
+  <div class="nav-wrap">
+    <a href="#home" class="brand">
+      <span class="brand-top">Mariachi</span>
+      <span class="brand-bottom">Sin Frontera</span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="#about">About</a>
+      <a href="#band">The Band</a>
+      <a href="#gigs">Gigs</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#videos">Videos</a>
+      <a href="#contact">Book Us</a>
+      <!-- Admin panel is your Google Apps Script URL — bookmark it separately -->
+    </nav>
+    <div class="nav-socials" id="navSocials"></div>
+    <button class="burger" id="burger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="hero-texture"></div>
+  <div class="hero-vignette"></div>
+  <div class="hero-content">
+    <div class="hero-pre">✦ &nbsp; Victoria, BC &nbsp; ✦</div>
+    <h1 class="hero-title">
+      <span class="ht-top">Mariachi</span>
+      <span class="ht-mid">Sin</span>
+      <span class="ht-bot">Frontera</span>
+    </h1>
+    <div class="hero-rule">
+      <span></span><span class="rule-icon">🎺</span><span></span>
+    </div>
+    <p class="hero-sub">Without Borders &nbsp;·&nbsp; Traditional Mexican Mariachi</p>
+    <a href="#contact" class="cta-btn">Book Us For Your Event</a>
+  </div>
+  <div class="hero-scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section about-sec">
+  <div class="container">
+    <div class="sec-head">
+      <p class="sec-pre">✦ Our Story ✦</p>
+      <h2 class="sec-title">Passion Without Borders</h2>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <div class="about-img-frame" id="aboutImgFrame">
+          <img id="aboutImg" src="" alt="Mariachi Sin Frontera"
+               onerror="this.parentElement.classList.add('img-missing')"/>
+          <div class="img-missing-label">
+            📷 Add your band photo<br>
+            <small>Set <strong>bandPhoto</strong> in js/site-text.js</small>
+          </div>
+        </div>
+        <div class="about-tag">
+          <strong>Victoria, BC</strong><span>Canada</span>
+        </div>
+      </div>
+      <div class="about-text">
+        <p class="about-lead" id="aboutLead"></p>
+        <p id="aboutP1"></p>
+        <p id="aboutP2"></p>
+        <a href="#contact" class="outline-btn">Inquire About Booking</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BAND MEMBERS -->
+<section id="band" class="section band-sec">
+  <div class="container">
+    <div class="sec-head">
+      <p class="sec-pre">✦ Meet The Musicians ✦</p>
+      <h2 class="sec-title">The Band</h2>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="band-grid" id="bandGrid"></div>
+  </div>
+</section>
+
+<!-- GIGS -->
+<section id="gigs" class="section gigs-sec">
+  <div class="gigs-inner">
+    <div class="container">
+      <div class="sec-head light">
+        <p class="sec-pre">✦ Come See Us ✦</p>
+        <h2 class="sec-title">Upcoming Performances</h2>
+        <div class="sec-rule"></div>
+      </div>
+      <div id="gigsList" class="gigs-list"></div>
+      <p id="gigsEmpty" class="gigs-empty" style="display:none">
+        No upcoming performances scheduled — check back soon or contact us for private bookings!
+      </p>
+      <p id="gigsLoading" class="gigs-empty">Loading performances…</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY SLIDESHOW -->
+<section id="gallery" class="section gallery-sec">
+  <div class="container">
+    <div class="sec-head">
+      <p class="sec-pre">✦ In The Spotlight ✦</p>
+      <h2 class="sec-title">Gallery</h2>
+      <div class="sec-rule"></div>
+    </div>
+  </div>
+  <div class="slideshow-wrap">
+    <div class="slideshow" id="slideshow">
+      <div class="slide-track" id="slideTrack"></div>
+    </div>
+    <button class="slide-btn prev" id="slidePrev" aria-label="Previous">‹</button>
+    <button class="slide-btn next" id="slideNext" aria-label="Next">›</button>
+    <div class="slide-dots" id="slideDots"></div>
+    <div class="slide-caption" id="slideCaption"></div>
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section id="videos" class="section videos-sec">
+  <div class="container">
+    <div class="sec-head">
+      <p class="sec-pre">✦ Watch &amp; Listen ✦</p>
+      <h2 class="sec-title">Videos</h2>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="videos-grid" id="videosGrid"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section contact-sec">
+  <div class="container">
+    <div class="sec-head">
+      <p class="sec-pre">✦ Let's Play Your Event ✦</p>
+      <h2 class="sec-title">Book Us</h2>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-left">
+        <h3>Bring Mariachi to your celebration</h3>
+        <p>Whether it's a wedding, quinceañera, corporate dinner, festival, or birthday —
+           Mariachi Sin Frontera delivers an unforgettable experience.</p>
+        <ul class="contact-info-list" id="contactInfoList"></ul>
+        <div class="social-row" id="contactSocialRow"></div>
+      </div>
+      <div class="contact-right">
+        <!-- Formspree handles this form — sign up free at formspree.io
+             then replace YOUR_FORM_ID below with your actual form ID -->
+        <form action="https://formspree.io/f/YOUR_FORM_ID"
+              method="POST" class="booking-form" id="bookingForm">
+          <input type="hidden" name="_subject" value="New Booking Inquiry — Mariachi Sin Frontera"/>
+          <div class="field-group">
+            <label for="f-name">Your Name</label>
+            <input type="text" id="f-name" name="name" required placeholder="Full name"/>
+          </div>
+          <div class="field-group">
+            <label for="f-email">Email Address</label>
+            <input type="email" id="f-email" name="email" required placeholder="your@email.com"/>
+          </div>
+          <div class="field-row">
+            <div class="field-group">
+              <label for="f-event">Event Type</label>
+              <input type="text" id="f-event" name="event" placeholder="Wedding, Festival…"/>
+            </div>
+            <div class="field-group">
+              <label for="f-date">Event Date</label>
+              <input type="date" id="f-date" name="date"/>
+            </div>
+          </div>
+          <div class="field-group">
+            <label for="f-msg">Message</label>
+            <textarea id="f-msg" name="message" rows="4" placeholder="Tell us about your event…"></textarea>
+          </div>
+          <button type="submit" class="cta-btn">Send Booking Inquiry</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="brand-top">Mariachi</span>
+        <span class="brand-bottom">Sin Frontera</span>
+        <p>Without Borders · Victoria, BC</p>
+      </div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#band">Band</a>
+        <a href="#gigs">Gigs</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#videos">Videos</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-base">
+      <p>&copy; <span id="yr"></span> Mariachi Sin Frontera · Victoria, BC</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/site-text.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
