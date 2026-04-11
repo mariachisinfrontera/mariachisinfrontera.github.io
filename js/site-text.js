@@ -16,8 +16,8 @@ const SITE_TEXT = {
   adminUrl: "",
 
   // ── CONTACT INFO ─────────────────────────────────────────────────
-  phone:    "(250) 000-0000",
-  email:    "mariachisinfrontera@gmail.com",
+  phone:    "(250) 555-1234",
+  email:    "davidjamesmorris2@gmail.com",
   location: "Victoria, BC, Canada",
 
   // ── SOCIAL MEDIA LINKS ───────────────────────────────────────────
@@ -56,8 +56,8 @@ const SITE_TEXT = {
   bandPhoto: "band-main.jpg",
 
   about: {
-    lead:       "Mariachi Sin Frontera — Without Borders — carries the soul of traditional Mexican Mariachi music to every corner of Victoria and beyond.",
-    paragraph1: "Dressed in striking black Charro suits adorned with silver accents and bold bow ties, we bring the fire, romance, and joy of authentic Mariachi to weddings, quinceañeras, festivals, private events, and cultural celebrations.",
+    lead:       "Mariachi Sin Frontera — Without Borders — carries the soul of traditional Mexican Mariachi music to every corner of Victoria BC, Vancouver Island and beyond.",
+    paragraph1: "Dressed in striking black Charro adorned with silver accents and bold bow ties, we bring the fire, romance, and joy of authentic Mariachi to weddings, quinceañeras, festivals, private events, and cultural celebrations.",
     paragraph2: "From classic rancheras and boleros to beloved sones jaliscienses, our repertoire spans the full richness of the Mariachi tradition — performed with passion, precision, and pride."
   },
 
@@ -65,7 +65,7 @@ const SITE_TEXT = {
   // photo: filename in images/ folder, OR a full Google Drive image link
   // Leave as "" for a placeholder icon
   members: [
-    { name: "Member Name", role: "Trumpet · Director", bio: "Add a short biography about this member.", photo: "" },
+    { name: "David", role: "Trumpet · Director", bio: "Add a short biography about this member.", photo: "" },
     { name: "Member Name", role: "Violin",              bio: "Add a short biography about this member.", photo: "" },
     { name: "Member Name", role: "Guitarrón",           bio: "Add a short biography about this member.", photo: "" },
     { name: "Member Name", role: "Vihuela",             bio: "Add a short biography about this member.", photo: "" },
