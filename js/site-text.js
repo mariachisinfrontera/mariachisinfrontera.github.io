@@ -11,7 +11,7 @@ const SITE_TEXT = {
   // paste the Web App URL here.
   // It looks like: https://script.google.com/macros/s/XXXXX.../exec
   appsScriptUrl: "https://script.google.com/macros/s/AKfycbzfJnVRape394Pjpuq-nj74LrYTzSJc7P-iVJei4uNblviZZCW1LLulDIjZlTUB3-g/exec",
-  googleSheetId: "15mPIt4aAwwjKH3g3b72E1Uv1zJp-vIbegfBddXAhyV4",
+  
   // Admin panel link shown in site footer — paste same URL as above
   adminUrl: "",
 
