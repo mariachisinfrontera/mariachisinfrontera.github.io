@@ -53,7 +53,7 @@ const SITE_TEXT = {
   //   4. Paste the full https://... link as bandPhoto
   //
   // Best size: landscape/wide photo, e.g. 1200x675px
-  bandPhoto: "band-main.jpg",
+  bandPhoto: "https://drive.google.com/file/d/1VXRQZYn4LT01BhlwxNSO1vEnUxsHuOmy/view",
 
   about: {
     lead:       "Mariachi Sin Frontera — Without Borders — carries the soul of traditional Mexican Mariachi music to every corner of Victoria BC, Vancouver Island and beyond.",
@@ -91,7 +91,7 @@ const SITE_TEXT = {
   //
   // caption: shown briefly at bottom of slideshow
   gallery: [
-    { file: "gallery-1.jpg", caption: "Performance at Victoria Festival" },
+    { file: "https://drive.google.com/file/d/1VXRQZYn4LT01BhlwxNSO1vEnUxsHuOmy/view", caption: "Performance at Victoria Festival" },
     { file: "gallery-2.jpg", caption: "Wedding Celebration" },
     { file: "gallery-3.jpg", caption: "Cultural Event" },
     { file: "gallery-4.jpg", caption: "Private Party" },
