@@ -62,7 +62,7 @@ const SITE_TEXT = {
   // IMPORTANT: Make sure the photo is shared as "Anyone with the link can view"
   //            in Google Drive, otherwise it won't appear on the site.
   //
-  bandPhoto: "https://drive.google.com/file/d/1VXRQZYn4LT01BhlwxNSO1vEnUxsHuOmy/view",
+  bandPhoto: "https://drive.google.com/file/d/1v9Yj9cMVKrOjAprY1aDoF1q_W6Gg5G8j/view",
 
   about: {
     // The italic gold opening line
@@ -108,7 +108,7 @@ const SITE_TEXT = {
   //       line is required. Keep the quote marks around values.
   //
   gallery: [
-    { file: "https://drive.google.com/file/d/1VXRQZYn4LT01BhlwxNSO1vEnUxsHuOmy/view", caption: "Performance at Victoria Festival" },
+    { file: "https://drive.google.com/file/d/1v9Yj9cMVKrOjAprY1aDoF1q_W6Gg5G8j/view", caption: "Performance at Victoria Festival" },
     { file: "gallery-2.jpg", caption: "Wedding Celebration" },
     { file: "gallery-3.jpg", caption: "Cultural Event" },
     { file: "gallery-4.jpg", caption: "Private Party" },
