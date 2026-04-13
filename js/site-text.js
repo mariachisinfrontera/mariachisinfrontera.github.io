@@ -133,7 +133,7 @@ const SITE_TEXT = {
   // appear in search results but will embed correctly on the site.
   //
   videos: [
-    { id: "YOUTUBE_ID_1", label: "Live Performance — Victoria" },
+    { id: "KfFKkhkjoH8&list=PLZBqeKD9Hoy60-C8Q-x2ZR6aJ34R_hxTE&index=1", label: "Centenial Square, 2025" },
     { id: "YOUTUBE_ID_2", label: "Wedding Celebration" },
     { id: "YOUTUBE_ID_3", label: "Cielito Lindo" }
     // ADD NEW VIDEOS ABOVE THIS LINE — replace YOUTUBE_ID with the real ID
