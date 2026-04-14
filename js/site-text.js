@@ -35,7 +35,7 @@ const SITE_TEXT = {
   // To get a link: right-click folder in Drive → Share →
   //   "Anyone with the link can view" → Copy link
   drive: {
-    sheetMusic:     "https://drive.google.com/drive/folders/1ufTky6-51AeIsQAxbcnmCmpLpYVo6YvM",   // ← paste your sheet music folder link
+    sheetMusic:     "https://drive.google.com/drive/folders/1l0dmjSFQjUmMjaM8Tv2dUZM342ekoWf7?usp=sharing",   // ← paste your sheet music folder link
     pastRecordings: "",   // ← paste your recordings folder link
     referenceSongs: ""    // ← paste your reference songs folder link
   },
