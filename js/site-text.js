@@ -62,7 +62,7 @@ const SITE_TEXT = {
   // IMPORTANT: Make sure the photo is shared as "Anyone with the link can view"
   //            in Google Drive, otherwise it won't appear on the site.
   //
-  bandPhoto: "https://drive.google.com/file/d/1v9Yj9cMVKrOjAprY1aDoF1q_W6Gg5G8j/view",
+  bandPhoto: "https://drive.google.com/file/d/0B4x_XgF1fe65QUdXS3NMWDdtbms/view",
 
   about: {
     // The italic gold opening line
@@ -78,7 +78,7 @@ const SITE_TEXT = {
   // Leave photo as "" for a placeholder icon
   // To get a Drive link: use the Admin Panel → Photos tab → upload → Copy Gallery Link
   members: [
-    { name: "David",       role: "Trumpet",             bio: "Add a short biography about this member.", photo: "https://drive.google.com/file/d/1BUhM9h93v_lDG552Zfy-oZhI-oKTQnYg/view" },
+    { name: "David",       role: "Trumpet",             bio: "the best.", photo: "https://drive.google.com/file/d/1BUhM9h93v_lDG552Zfy-oZhI-oKTQnYg/view" },
     { name: "Member Name", role: "Violin",              bio: "Add a short biography about this member.", photo: "" },
     { name: "Member Name", role: "Guitarrón",           bio: "Add a short biography about this member.", photo: "" },
     { name: "Member Name", role: "Vihuela",             bio: "Add a short biography about this member.", photo: "" },
@@ -109,11 +109,12 @@ const SITE_TEXT = {
   //
   gallery: [
     { file: "https://drive.google.com/file/d/1VXRQZYn4LT01BhlwxNSO1vEnUxsHuOmy/view", caption: "Performance at Victoria Festival" },
-    { file: "gallery-2.jpg", caption: "Wedding Celebration" },
-    { file: "gallery-3.jpg", caption: "Cultural Event" },
+    { file: "https://drive.google.com/file/d/0B4x_XgF1fe65QUdXS3NMWDdtbms/view", caption: "Wedding Celebration" },
+    { file: "https://drive.google.com/file/d/1BUhM9h93v_lDG552Zfy-oZhI-oKTQnYg/view", caption: "Cultural Event" },
     { file: "gallery-4.jpg", caption: "Private Party" },
     { file: "gallery-5.jpg", caption: "Outdoor Performance" },
-    { file: "gallery-6.jpg", caption: "Band in Charro Suits" }
+    { file: "gallery-6.jpg", caption: "Band in Charro Suits" },
+    { file: "gallery-7.jpg", caption: "Band in Charro Suits" }
     // ADD NEW PHOTOS ABOVE THIS LINE — copy the format of the lines above
   ],
 
@@ -134,7 +135,7 @@ const SITE_TEXT = {
   //
   videos: [
     { id: "KfFKkhkjoH8&list=PLZBqeKD9Hoy60-C8Q-x2ZR6aJ34R_hxTE&index=1", label: "Centenial Square, 2025" },
-    { id: "YOUTUBE_ID_2", label: "Wedding Celebration" },
+    { id: "NCvJwzDQTBM", label: "Wedding Celebration" },
     { id: "YOUTUBE_ID_3", label: "Cielito Lindo" }
     // ADD NEW VIDEOS ABOVE THIS LINE — replace YOUTUBE_ID with the real ID
   ]
