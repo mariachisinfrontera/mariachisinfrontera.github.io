@@ -79,7 +79,7 @@ const SITE_TEXT = {
   // To get a Drive link: use the Admin Panel → Photos tab → upload → Copy Gallery Link
   members: [
     { name: "David",       role: "Trumpet",             bio: "the best.", photo: "https://drive.google.com/file/d/1BUhM9h93v_lDG552Zfy-oZhI-oKTQnYg/view" },
-    { name: "Member Name", role: "Violin",              bio: "Add a short biography about this member.", photo: "" },
+    { name: "Jorge", role: "Vocals",                    bio: "Add a short biography about this member.", photo: "" },
     { name: "Member Name", role: "Guitarrón",           bio: "Add a short biography about this member.", photo: "" },
     { name: "Member Name", role: "Vihuela",             bio: "Add a short biography about this member.", photo: "" },
     { name: "Member Name", role: "Guitar",              bio: "Add a short biography about this member.", photo: "" },
