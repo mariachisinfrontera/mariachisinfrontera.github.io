@@ -8,18 +8,20 @@ document.addEventListener('DOMContentLoaded', function() {
   // ── Mobile nav ──────────────────────────────────────────
   var burger  = document.getElementById('burger');
   var overlay = document.getElementById('navOverlay');
-  burger.addEventListener('click', function() {
-    var open = overlay.classList.toggle('open');
-    burger.classList.toggle('open', open);
-    document.body.style.overflow = open ? 'hidden' : '';
-  });
-  overlay.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', function() {
-      overlay.classList.remove('open');
-      burger.classList.remove('open');
-      document.body.style.overflow = '';
+  if (burger && overlay) {
+    burger.addEventListener('click', function() {
+      var open = overlay.classList.toggle('open');
+      burger.classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
     });
-  });
+    overlay.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        overlay.classList.remove('open');
+        burger.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
 
   buildSocials();
   buildAbout();
