@@ -61,9 +61,9 @@ function resolvePhotoSrc(file, size) {
   if (file.startsWith('http')) {
     var match = file.match(/\/file\/d\/([^/]+)/);
     if (match) {
-      // Use w800 for gallery (fast on mobile), w1200 for full quality
-      var sz = size || 'w800';
-      return 'https://drive.google.com/thumbnail?id=' + match[1] + '&sz=' + sz;
+      // Use lh3.googleusercontent.com — more reliable on mobile than /thumbnail
+      var sz = size || '800';
+      return 'https://lh3.googleusercontent.com/d/' + match[1] + '=s' + sz + '?authuser=0';
     }
     return file;
   }
@@ -116,15 +116,16 @@ function buildAbout() {
   var T = SITE_TEXT;
   var img = document.getElementById('aboutImg');
   if (img && T.bandPhoto) {
-    // Try smaller size first for faster load, then upgrade if needed
-    var src = resolvePhotoSrc(T.bandPhoto, 'w800');
     img.addEventListener('load', function() { img.classList.add('loaded'); });
     img.addEventListener('error', function() {
-      // If Drive thumbnail fails, try direct approach
-      img.src = resolvePhotoSrc(T.bandPhoto, 'w400');
+      // lh3 failed — try the /thumbnail endpoint as fallback
+      if (!img.getAttribute('data-tried-thumb')) {
+        img.setAttribute('data-tried-thumb','1');
+        var m2 = T.bandPhoto.match(/\/file\/d\/([^/]+)/);
+        if (m2) img.src = 'https://drive.google.com/thumbnail?id=' + m2[1] + '&sz=w800';
+      }
     });
-    img.src = src;
-    // If already cached
+    img.src = resolvePhotoSrc(T.bandPhoto);
     if (img.complete && img.naturalWidth > 0) img.classList.add('loaded');
   }
   setText('aboutLead', T.about.lead);
