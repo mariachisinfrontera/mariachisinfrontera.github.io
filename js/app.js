@@ -5,21 +5,24 @@
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('yr').textContent = new Date().getFullYear();
 
-  // ── Mobile nav ──────────────────────────────────────────
+  // ── Mobile nav overlay ───────────────────────────────────
   var burger  = document.getElementById('burger');
   var overlay = document.getElementById('navOverlay');
+  var navClose = document.getElementById('navClose');
+  function closeNav() {
+    overlay.classList.remove('open');
+    burger.classList.remove('open');
+    document.body.style.overflow = '';
+  }
   if (burger && overlay) {
     burger.addEventListener('click', function() {
       var open = overlay.classList.toggle('open');
       burger.classList.toggle('open', open);
       document.body.style.overflow = open ? 'hidden' : '';
     });
+    if (navClose) navClose.addEventListener('click', closeNav);
     overlay.querySelectorAll('a').forEach(function(a) {
-      a.addEventListener('click', function() {
-        overlay.classList.remove('open');
-        burger.classList.remove('open');
-        document.body.style.overflow = '';
-      });
+      a.addEventListener('click', closeNav);
     });
   }
 
@@ -30,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
   buildVideos();
   buildContact();
 
-  // Admin links
+  // Admin links — show when adminUrl is set
   var adminUrl = SITE_TEXT.adminUrl;
   if (adminUrl && adminUrl !== '') {
     ['navAdminLink','mobileAdminLink','footerAdminLink'].forEach(function(id) {
@@ -41,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   loadGigs();
 
+  // Scroll reveal
   setTimeout(function() {
     var ro = new IntersectionObserver(function(entries) {
       entries.forEach(function(e) {
@@ -51,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }, 200);
 });
 
+// ── Photo resolver ────────────────────────────────────────
 function resolvePhotoSrc(file) {
   if (!file) return '';
   if (file.startsWith('http')) {
@@ -62,6 +67,7 @@ function resolvePhotoSrc(file) {
 }
 
 // ── Social icons ──────────────────────────────────────────
+// Always builds icons — real links are clickable, placeholders are greyed out
 function buildSocials() {
   var T = SITE_TEXT;
   var defs = [
@@ -70,28 +76,34 @@ function buildSocials() {
     { key:'instagram', label:'Instagram',   color:'#e1306c', fill:false,
       svg:'<rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>'},
     { key:'youtube',   label:'YouTube',     color:'#ff0000', fill:true,
-      svg:'<path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/>'},
-    { key:'twitter',   label:'Twitter / X', color:'#000',    fill:true,
-      svg:'<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.26 5.632 5.905-5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>'}
+      svg:'<path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/>'}
   ];
   var navEl  = document.getElementById('navSocials');
   var socRow = document.getElementById('contactSocialRow');
+
   defs.forEach(function(d) {
     var url = T[d.key];
-    if (!url || url.includes('YOUR_')) return;
+    var hasReal = url && !url.includes('YOUR_');
     var attr = d.fill ? 'fill="currentColor"' : 'fill="none" stroke="currentColor" stroke-width="2"';
-    // Nav icon
-    var navA = document.createElement('a');
-    navA.href = url; navA.target = '_blank'; navA.className = 'soc'; navA.setAttribute('aria-label', d.label);
+
+    // Nav icon — always show, greyed if no real link
+    var navA = document.createElement(hasReal ? 'a' : 'span');
+    if (hasReal) { navA.href = url; navA.target = '_blank'; }
+    navA.className = 'soc' + (hasReal ? '' : ' soc-placeholder');
+    navA.setAttribute('aria-label', d.label);
+    navA.title = hasReal ? d.label : d.label + ' (add link in site-text.js)';
     navA.innerHTML = '<svg viewBox="0 0 24 24" ' + attr + ' width="18" height="18">' + d.svg + '</svg>';
-    navEl.appendChild(navA);
-    // Contact pill
-    var pill = document.createElement('a');
-    pill.href = url; pill.target = '_blank'; pill.textContent = d.label; pill.className = 'soc-pill';
-    pill.style.cssText = 'border-color:' + d.color + ';color:' + d.color;
-    pill.addEventListener('mouseenter', function() { pill.style.background = d.color; pill.style.color = '#fff'; });
-    pill.addEventListener('mouseleave', function() { pill.style.background = ''; pill.style.color = d.color; });
-    socRow.appendChild(pill);
+    if (navEl) navEl.appendChild(navA);
+
+    // Contact pill — only show if real link
+    if (hasReal && socRow) {
+      var pill = document.createElement('a');
+      pill.href = url; pill.target = '_blank'; pill.textContent = d.label; pill.className = 'soc-pill';
+      pill.style.cssText = 'border-color:' + d.color + ';color:' + d.color;
+      pill.addEventListener('mouseenter', function() { pill.style.background = d.color; pill.style.color = '#fff'; });
+      pill.addEventListener('mouseleave', function() { pill.style.background = ''; pill.style.color = d.color; });
+      socRow.appendChild(pill);
+    }
   });
 }
 
@@ -102,15 +114,14 @@ function buildAbout() {
   if (img && T.bandPhoto) {
     img.src = resolvePhotoSrc(T.bandPhoto);
     img.addEventListener('load', function() { img.classList.add('loaded'); });
-    // If already cached, fire immediately
-    if (img.complete) img.classList.add('loaded');
+    if (img.complete && img.naturalWidth > 0) img.classList.add('loaded');
   }
   setText('aboutLead', T.about.lead);
   setText('aboutP1',   T.about.paragraph1);
   setText('aboutP2',   T.about.paragraph2);
 }
 
-// ── Band ──────────────────────────────────────────────────
+// ── Band members ──────────────────────────────────────────
 function buildBand() {
   var grid = document.getElementById('bandGrid');
   if (!grid) return;
@@ -119,8 +130,9 @@ function buildBand() {
     var src = m.photo ? resolvePhotoSrc(m.photo) : '';
     return '<div class="member-card reveal">' +
       '<div class="mc-img">' +
-      (src ? '<img src="' + src + '" alt="' + m.name + '" onerror="this.style.display=\'none\'">' : '') +
-      '<div class="mc-img-ph">' + (ph[i] || '🎵') + '</div></div>' +
+      (src ? '<img src="' + src + '" alt="' + m.name + '" onload="this.nextElementSibling.style.display=\'none\'" onerror="this.style.display=\'none\'">' : '') +
+      '<div class="mc-img-ph">' + (ph[i] || '🎵') + '</div>' +
+      '</div>' +
       '<div class="mc-body">' +
       '<div class="mc-name">' + m.name + '</div>' +
       '<div class="mc-role">' + m.role + '</div>' +
@@ -132,7 +144,7 @@ function buildBand() {
 // ── Gallery Slideshow — 10 second delay ──────────────────
 var slideIndex  = 0;
 var slideTimer  = null;
-var SLIDE_DELAY = 10000; // 10 seconds
+var SLIDE_DELAY = 10000;
 
 function buildSlideshow() {
   var photos = SITE_TEXT.gallery;
@@ -189,7 +201,6 @@ function buildVideos() {
   grid.innerHTML = valid.map(function(v) {
     return '<div class="vid-card reveal">' +
       '<div class="vid-embed">' +
-      // Use youtube-nocookie.com to avoid playback errors
       '<iframe src="https://www.youtube-nocookie.com/embed/' + v.id + '" allowfullscreen loading="lazy" title="' + v.label + '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>' +
       '</div><div class="vid-label">' + v.label + '</div></div>';
   }).join('');
@@ -264,15 +275,14 @@ async function loadGigs() {
 
 function formatTime(t) {
   if (!t) return '';
-  var parts = t.split(':');
-  var h = parseInt(parts[0]);
-  var m = parts[1] || '00';
+  var colon = t.indexOf(':');
+  if (colon > 2) { var sp = t.lastIndexOf(' ', colon); t = sp >= 0 ? t.substring(sp + 1) : t; }
+  var parts = t.split(':'), h = parseInt(parts[0]), m = parts[1] || '00';
   var ampm = h >= 12 ? 'PM' : 'AM';
   h = h % 12 || 12;
   return h + ':' + m + ' ' + ampm;
 }
 
-// ── Utility ───────────────────────────────────────────────
 function setText(id, text) {
   var el = document.getElementById(id);
   if (el) el.textContent = text;
