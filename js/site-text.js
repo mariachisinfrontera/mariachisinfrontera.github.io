@@ -80,7 +80,7 @@ const SITE_TEXT = {
   members: [
     { name: "Jorge",       role: "Guitar, Vocals",            bio: "the best.", photo: "https://drive.google.com/file/d/1BUhM9h93v_lDG552Zfy-oZhI-oKTQnYg/view" },
     { name: "Angelique",   role: "Vocals",                    bio: "Add a short biography about this member.", photo: "" },
-    { name: "Amanda",      role: "Violin,                     bio: "Add a short biography about this member.", photo: "" },
+    { name: "Amanda",      role: "Violin",                     bio: "Add a short biography about this member.", photo: "" },
     { name: "Hector",      role: "Violin",                    bio: "Add a short biography about this member.", photo: "" },
     { name: "Emily",       role: "Trumpet",                   bio: "Add a short biography about this member.", photo: "" },
     { name: "David",       role: "Trumpet",                   bio: "Add a short biography about this member.", photo: "" },
