@@ -125,8 +125,17 @@ function buildAbout() {
   var T = SITE_TEXT;
   var img = document.getElementById('aboutImg');
   if (img && T.bandPhoto) {
-    // No fade — just show immediately when loaded
-    img.style.opacity = '1';
+    var frame = document.getElementById('aboutImgFrame');
+    img.addEventListener('load', function() {
+      // Image loaded successfully — ensure missing class is removed
+      if (frame) frame.classList.remove('img-missing');
+    });
+    img.addEventListener('error', function() {
+      // Only mark missing if src is actually set (not empty)
+      if (img.src && img.src !== window.location.href) {
+        if (frame) frame.classList.add('img-missing');
+      }
+    });
     img.src = resolvePhotoSrc(T.bandPhoto);
   }
   setText('aboutLead', T.about.lead);
