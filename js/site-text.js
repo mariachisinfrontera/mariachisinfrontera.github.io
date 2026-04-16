@@ -56,9 +56,22 @@ const SITE_TEXT = {
 
   // ── GALLERY PHOTOS ───────────────────────────────────────────────
   // HOW TO ADD A PHOTO:
-  // Option A — Admin Panel → Photos tab → upload → Copy Link → paste below as:
-  //   { file: "PASTE_LINK_HERE", caption: "Description" },
-  // Option B — Upload to GitHub → images/ folder, then add:
+  //
+  // Option A — Admin Panel → Photos tab (easiest):
+  //   1. Drag photo into upload box — it saves to Google Drive
+  //   2. Click "Copy Link" on the photo card
+  //   3. Edit this file on GitHub (pencil icon)
+  //   4. Paste link below as: { file: "LINK", caption: "Description" },
+  //   5. Commit — done!
+  //
+  //   To update the WHOLE gallery order at once:
+  //   1. Drag photos in the admin to reorder them
+  //   2. The "Gallery Order" panel appears at the bottom of Photos tab
+  //   3. Click "Copy All" — copies all gallery lines at once
+  //   4. Edit this file on GitHub → replace everything between gallery: [ and the // ADD line
+  //   5. Commit
+  //
+  // Option B — Upload directly to GitHub → images/ folder, then:
   //   { file: "filename.jpg", caption: "Description" },
   gallery: [
     { file: "https://drive.google.com/file/d/1VXRQZYn4LT01BhlwxNSO1vEnUxsHuOmy/view", caption: "Performance at Victoria Festival" },
