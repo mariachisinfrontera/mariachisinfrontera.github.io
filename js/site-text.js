@@ -78,12 +78,13 @@ const SITE_TEXT = {
   // Leave photo as "" for a placeholder icon
   // To get a Drive link: use the Admin Panel → Photos tab → upload → Copy Gallery Link
   members: [
-    { name: "David",       role: "Trumpet",             bio: "the best.", photo: "https://drive.google.com/file/d/1BUhM9h93v_lDG552Zfy-oZhI-oKTQnYg/view" },
-    { name: "Jorge", role: "Vocals",                    bio: "Add a short biography about this member.", photo: "" },
-    { name: "Member Name", role: "Guitarrón",           bio: "Add a short biography about this member.", photo: "" },
-    { name: "Member Name", role: "Vihuela",             bio: "Add a short biography about this member.", photo: "" },
-    { name: "Member Name", role: "Guitar",              bio: "Add a short biography about this member.", photo: "" },
-    { name: "Member Name", role: "Vocals",              bio: "Add a short biography about this member.", photo: "" }
+    { name: "Jorge",       role: "Guitar, Vocals",            bio: "the best.", photo: "https://drive.google.com/file/d/1BUhM9h93v_lDG552Zfy-oZhI-oKTQnYg/view" },
+    { name: "Angelique",   role: "Vocals",                    bio: "Add a short biography about this member.", photo: "" },
+    { name: "Amanda",      role: "Violin,                     bio: "Add a short biography about this member.", photo: "" },
+    { name: "Hector",      role: "Violin",                    bio: "Add a short biography about this member.", photo: "" },
+    { name: "Emily",       role: "Trumpet",                   bio: "Add a short biography about this member.", photo: "" },
+    { name: "David",       role: "Trumpet",                   bio: "Add a short biography about this member.", photo: "" },
+    { name: "Alex",        role: "Guitarrón",                 bio: "Add a short biography about this member.", photo: "" }
   ],
 
   // ── GALLERY PHOTOS ───────────────────────────────────────────────
