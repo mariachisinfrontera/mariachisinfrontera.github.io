@@ -26,7 +26,7 @@ const SITE_TEXT = {
   // Replace YOUR_PAGE etc. with your real social media profile links.
   // To add Twitter/X: remove the // at the start of the twitter line.
   facebook:  "https://www.facebook.com/YOUR_PAGE",
-  instagram: "https://www.instagram.com/YOUR_HANDLE",
+  instagram: "https://www.instagram.com/mariachisinfronteravictoria",
   youtube:   "https://www.youtube.com/@YOUR_CHANNEL",
   // twitter: "https://twitter.com/YOUR_HANDLE",
 
