@@ -139,7 +139,8 @@ a{color:inherit;text-decoration:none;}
 .gig-day{font-family:var(--ff-disp);font-size:2.2rem;color:var(--gold);line-height:1;}
 .gig-month{font-family:var(--ff-disp);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--silver);}
 .gig-name{font-family:var(--ff-disp);font-size:1rem;letter-spacing:.06em;text-transform:uppercase;color:var(--silver2);margin-bottom:4px;}
-.gig-venue{font-size:.9rem;color:var(--silver);opacity:.65;}
+.gig-venue{font-size:.9rem;color:var(--silver);opacity:.65;text-decoration:none;display:block;}
+.gig-venue:hover{color:var(--gold);opacity:1;text-decoration:underline;}
 .gig-time{font-size:.85rem;color:var(--gold);opacity:.85;margin-top:2px;}
 .gigs-empty{text-align:center;font-style:italic;color:var(--silver);opacity:.45;padding:48px 0;}
 
