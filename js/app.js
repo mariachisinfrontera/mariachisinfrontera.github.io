@@ -277,11 +277,13 @@ async function loadGigs() {
     list.innerHTML = gigs.map(function(g) {
       var d = new Date(g.date + 'T00:00:00');
       var timeHtml = g.time ? '<div class="gig-time">🕐 ' + formatTime(g.time) + '</div>' : '';
+      var mapsUrl = 'https://maps.google.com/?q=' + encodeURIComponent(g.venue);
       return '<div class="gig-row reveal">' +
         '<div class="gig-cal"><div class="gig-day">' + d.getDate() + '</div>' +
         '<div class="gig-month">' + MONTHS[d.getMonth()] + ' ' + d.getFullYear() + '</div></div>' +
         '<div class="gig-info"><div class="gig-name">' + g.name + '</div>' +
-        '<div class="gig-venue">📍 ' + g.venue + '</div>' + timeHtml + '</div></div>';
+        '<a class="gig-venue" href="' + mapsUrl + '" target="_blank" rel="noopener">📍 ' + g.venue + '</a>' +
+        timeHtml + '</div></div>';
     }).join('');
 
     var ro = new IntersectionObserver(function(entries) {
