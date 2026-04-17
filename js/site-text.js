@@ -75,7 +75,7 @@ const SITE_TEXT = {
   //   { file: "filename.jpg", caption: "Description" },
   gallery: [
     { file: "https://drive.google.com/file/d/1VXRQZYn4LT01BhlwxNSO1vEnUxsHuOmy/view", caption: "Performance at Victoria Festival" },
-    { file: "https://drive.google.com/file/d/0B4x_XgF1fe65QUdXS3NMWDdtbms/view",       caption: "Wedding Celebration" },
+    { file: "gallery-2.jpg",       caption: "Wedding Celebration" },
     { file: "https://drive.google.com/file/d/1BUhM9h93v_lDG552Zfy-oZhI-oKTQnYg/view", caption: "Cultural Event" },
     { file: "gallery-4.jpg", caption: "Private Party" },
     { file: "gallery-5.jpg", caption: "Outdoor Performance" },
