@@ -74,9 +74,9 @@ const SITE_TEXT = {
   // Option B — Upload directly to GitHub → images/ folder, then:
   //   { file: "filename.jpg", caption: "Description" },
   gallery: [
-    { file: "https://drive.google.com/file/d/1VXRQZYn4LT01BhlwxNSO1vEnUxsHuOmy/view", caption: "Performance at Victoria Festival" },
+    { file: "gallery-1.jpg", caption: "Performance at Victoria Festival" },
     { file: "gallery-2.jpg",       caption: "Wedding Celebration" },
-    { file: "https://drive.google.com/file/d/1BUhM9h93v_lDG552Zfy-oZhI-oKTQnYg/view", caption: "Cultural Event" },
+    { file: "gallery-3.jpg", caption: "Cultural Event" },
     { file: "gallery-4.jpg", caption: "Private Party" },
     { file: "gallery-5.jpg", caption: "Outdoor Performance" },
     { file: "gallery-6.jpg", caption: "Band in Charro Suits" },
@@ -88,8 +88,8 @@ const SITE_TEXT = {
   // Copy only the ID from the YouTube URL (part after ?v=)
   // Keep quotes and comma on each line.
   videos: [
-    { id: "KfFKkhkjoH8", label: "Centennial Square, 2025" },
-    { id: "NCvJwzDQTBM",  label: "Wedding Celebration" }
+    { id: "", label: "Centennial Square, 2025" },
+    { id: "",  label: "Wedding Celebration" }
     // ADD NEW VIDEOS ABOVE THIS LINE
   ]
 
