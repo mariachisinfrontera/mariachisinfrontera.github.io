@@ -34,7 +34,7 @@ const SITE_TEXT = {
   // ── BAND PHOTO ───────────────────────────────────────────────────
   // Set to "band-main.jpg" — upload the file to GitHub → images/ folder.
   // Do NOT use a Google Drive link for this photo.
-  bandPhoto: "band-main.jpg",
+  bandPhoto: "band-main.jpeg",
 
   about: {
     lead:       "Mariachi Sin Frontera — Without Borders — carries the soul of traditional Mexican Mariachi music to every corner of Victoria BC and southern Vancouver Island.",
