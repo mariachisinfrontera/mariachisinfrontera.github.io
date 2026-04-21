@@ -27,7 +27,7 @@ const SITE_TEXT = {
   // Shown in Admin → Resources tab. Paste Drive folder sharing links.
   drive: {
     sheetMusic:     "https://drive.google.com/drive/folders/1gN1BwQ683Wx7qn8ElTa7DwBIt25n9Ymm?usp=sharing",
-    pastRecordings: "",
+    pastRecordings: "https://drive.google.com/drive/folders/1wiS3EUuopZ7ZKPcpw77sRz9OWOEmchZW?usp=drive_link",
     referenceSongs: ""
   },
 
