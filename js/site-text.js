@@ -45,10 +45,12 @@ const SITE_TEXT = {
   // ── BAND MEMBERS ─────────────────────────────────────────────────
   // photo: filename in images/ folder, OR a Google Drive sharing link, OR "" for icon
   members: [
-    { name: "Jorge",    role: "Guitar, Vocals", bio: "the best.", photo: "" },
+    { name: "Jorge",    role: "Guitar, Vocals", bio: "Yo Guapo.", photo: "https://drive.google.com/file/d/1KzFU97SypEzlelTG_0WP5NIf3c-byS28/view" },
     { name: "Angelique", role: "Vocals",         bio: "Add a short biography about this member.", photo: "" },
     { name: "Amanda",   role: "Violin",          bio: "Add a short biography about this member.", photo: "" },
     { name: "Hector",   role: "Violin",          bio: "Add a short biography about this member.", photo: "" },
+    { name: "Leonardo",   role: "Violin",          bio: "Add a short biography about this member.", photo: "" },
+    { name: "Cleo",   role: "Violin",          bio: "Add a short biography about this member.", photo: "" },
     { name: "Emily",    role: "Trumpet",         bio: "Add a short biography about this member.", photo: "" },
     { name: "David",    role: "Trumpet",         bio: "Add a short biography about this member.", photo: "" },
     { name: "Alex",     role: "Guitarrón",       bio: "Add a short biography about this member.", photo: "" }
