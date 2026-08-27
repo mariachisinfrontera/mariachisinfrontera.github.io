@@ -45,15 +45,15 @@ const SITE_TEXT = {
   // ── BAND MEMBERS ─────────────────────────────────────────────────
   // photo: filename in images/ folder, OR a Google Drive sharing link, OR "" for icon
   members: [
-    { name: "Jorge",    role: "Guitar, Vocals", bio: "Yo Guapo.", photo: "https://drive.google.com/file/d/1KzFU97SypEzlelTG_0WP5NIf3c-byS28/view" },
-    { name: "Angelique", role: "Vocals",         bio: "Add a short biography about this member.", photo: "" },
-    { name: "Amanda",   role: "Violin",          bio: "Add a short biography about this member.", photo: "" },
-    { name: "Hector",   role: "Violin",          bio: "Add a short biography about this member.", photo: "" },
-    { name: "Leonardo",   role: "Violin",          bio: "Add a short biography about this member.", photo: "" },
+    { name: "Jorge",    role: "Guitar, Vocals", bio: "Soy Guapo.", photo: "https://drive.google.com/file/d/1KzFU97SypEzlelTG_0WP5NIf3c-byS28/view" },
+    { name: "Angelique", role: "Vocals",         bio: "Add a short biography about this member.", photo: "https://drive.google.com/file/d/1Z3w4VTxLGsIBVPUGbJAdVUjGoBZtzjh3/view" },
+    { name: "Amanda",   role: "Violin",          bio: "Add a short biography about this member.", photo: "https://drive.google.com/file/d/1clGUSsGanegpslgnLT67DTBdm6cSvkb4/view" },
+    { name: "Hector",   role: "Violin",          bio: "Add a short biography about this member.", photo: "https://drive.google.com/file/d/1WDXbmZwSv3x_0RUOGo0fcF6hmZ139bqY/view" },
+    { name: "Leonardo",   role: "Violin",          bio: "Add a short biography about this member.", photo: "https://drive.google.com/file/d/1hF4EhGKXO4V5b521HsyRy67JOUNiuhLx/view" },
     { name: "Cleo",   role: "Violin",          bio: "Add a short biography about this member.", photo: "" },
-    { name: "Emily",    role: "Trumpet",         bio: "Add a short biography about this member.", photo: "" },
-    { name: "David",    role: "Trumpet",         bio: "Add a short biography about this member.", photo: "" },
-    { name: "Alex",     role: "Guitarrón",       bio: "Add a short biography about this member.", photo: "" }
+    { name: "Emily",    role: "Trumpet",         bio: "Add a short biography about this member.", photo: "https://drive.google.com/file/d/10biyVXGY8PEvJiGhy9WFafQPICzuz93G/view" },
+    { name: "David",    role: "Trumpet",         bio: "Add a short biography about this member.", photo: "https://drive.google.com/file/d/1HNDt3AzhBWDWuptYZ-YaOQgo1ZIGufMx/view" },
+    { name: "Alex",     role: "Guitarrón",       bio: "Add a short biography about this member.", photo: "https://drive.google.com/file/d/1YMs4-4r1ZcuDfVs9RG26llGP1amkMt3u/view" }
   ],
 
   // ── GALLERY PHOTOS ───────────────────────────────────────────────
