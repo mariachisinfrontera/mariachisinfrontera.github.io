@@ -91,6 +91,7 @@ const SITE_TEXT = {
   // Keep quotes and comma on each line.
   videos: [
     { id: "YpwV0QqTmvQPhced", label: "Greek Fest, 2024" },
+    { id: "rdUy6x38yYg&list=RDrdUy6x38yYg&start_radio=1", label: "VARGAS def US, 2024" },
     { id: "Oyh_yIOH1vwxhR-j",  label: "Wedding Celebration" }
     // ADD NEW VIDEOS ABOVE THIS LINE
   ]
