@@ -45,7 +45,7 @@ const SITE_TEXT = {
   // ── BAND MEMBERS ─────────────────────────────────────────────────
   // photo: filename in images/ folder, OR a Google Drive sharing link, OR "" for icon
   members: [
-    { name: "Jorge",    role: "Guitar, Vocals", bio: "Soy Guapo.", photo: "https://drive.google.com/file/d/1KzFU97SypEzlelTG_0WP5NIf3c-byS28/view" },
+    { name: "Jorge",    role: "Vihuela, Vocals", bio: "Soy Guapo mucho.", photo: "https://drive.google.com/file/d/1KzFU97SypEzlelTG_0WP5NIf3c-byS28/view" },
     { name: "Angelique", role: "Vocals",         bio: "Add a short biography about this member.", photo: "https://drive.google.com/file/d/1Z3w4VTxLGsIBVPUGbJAdVUjGoBZtzjh3/view" },
     { name: "Amanda",   role: "Violin",          bio: "Add a short biography about this member.", photo: "https://drive.google.com/file/d/1clGUSsGanegpslgnLT67DTBdm6cSvkb4/view" },
     { name: "Hector",   role: "Violin",          bio: "Add a short biography about this member.", photo: "https://drive.google.com/file/d/1WDXbmZwSv3x_0RUOGo0fcF6hmZ139bqY/view" },
@@ -90,7 +90,7 @@ const SITE_TEXT = {
   // Copy only the ID from the YouTube URL (part after ?v=)
   // Keep quotes and comma on each line.
   videos: [
-    { id: "", label: "Centennial Square, 2025" },
+    { id: "YpwV0QqTmvQPhced", label: "Greek Fest, 2024" },
     { id: "",  label: "Wedding Celebration" }
     // ADD NEW VIDEOS ABOVE THIS LINE
   ]
