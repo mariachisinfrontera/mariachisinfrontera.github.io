@@ -90,9 +90,9 @@ const SITE_TEXT = {
   // Copy only the ID from the YouTube URL (part after ?v=)
   // Keep quotes and comma on each line.
   videos: [
-    { id: "YpwV0QqTmvQPhced", label: "Greek Fest, 2024" },
+    { id: "YpwV0QqTmvQPhced&list=RDYpwv0qTmvQPhced&start_radio=1", label: "Greek Fest, 2024" },
     { id: "rdUy6x38yYg&list=RDrdUy6x38yYg&start_radio=1", label: "VARGAS def US, 2024" },
-    { id: "Oyh_yIOH1vwxhR-j",  label: "Wedding Celebration" }
+    { id: "NCvJwzDQTBM&list=RDNCvJwzDQTBM&start_radio=1",  label: "Wedding Celebration" }
     // ADD NEW VIDEOS ABOVE THIS LINE
   ]
 
