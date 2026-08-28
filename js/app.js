@@ -61,9 +61,10 @@ function resolvePhotoSrc(file, size) {
   if (file.startsWith('http')) {
     var match = file.match(/\/file\/d\/([^/]+)/);
     if (match) {
-      // Use lh3.googleusercontent.com — more reliable on mobile than /thumbnail
-      var sz = size || '800';
-      return 'https://lh3.googleusercontent.com/d/' + match[1] + '=s' + sz + '?authuser=0';
+      // drive.google.com/thumbnail is publicly accessible without Google auth
+      // lh3.googleusercontent.com requires a Google session — fails on public mobile
+      var sz = size || 'w800';
+      return 'https://drive.google.com/thumbnail?id=' + match[1] + '&sz=' + sz;
     }
     return file;
   }
@@ -212,10 +213,31 @@ function startTimer()   { slideTimer = setInterval(function() { stepSlide(1); },
 function resetTimer()   { clearInterval(slideTimer); startTimer(); }
 
 // ── Videos ────────────────────────────────────────────────
+function extractYouTubeId(raw) {
+  if (!raw) return null;
+  raw = raw.trim();
+  // Already a clean 11-char ID (letters, numbers, - and _)
+  if (/^[A-Za-z0-9_-]{11}$/.test(raw)) return raw;
+  // youtu.be/ID or youtu.be/ID?si=...
+  var m = raw.match(/youtu\.be\/([A-Za-z0-9_-]{11})/);
+  if (m) return m[1];
+  // youtube.com/watch?v=ID or with extra params
+  m = raw.match(/[?&]v=([A-Za-z0-9_-]{11})/);
+  if (m) return m[1];
+  // youtube.com/embed/ID
+  m = raw.match(/embed\/([A-Za-z0-9_-]{11})/);
+  if (m) return m[1];
+  // Fallback — take first 11-char segment
+  m = raw.match(/([A-Za-z0-9_-]{11})/);
+  return m ? m[1] : null;
+}
+
 function buildVideos() {
   var grid = document.getElementById('videosGrid');
   if (!grid) return;
-  var valid = SITE_TEXT.videos.filter(function(v) { return v.id && !v.id.startsWith('YOUTUBE'); });
+  var valid = SITE_TEXT.videos
+    .map(function(v) { return { id: extractYouTubeId(v.id), label: v.label }; })
+    .filter(function(v) { return v.id && !v.id.startsWith('YOUTUBE'); });
   if (!valid.length) {
     grid.innerHTML = '<p style="color:rgba(208,208,208,.3);font-style:italic;text-align:center;padding:32px 0;grid-column:1/-1">Add YouTube video IDs to js/site-text.js to display videos here.</p>';
     return;
