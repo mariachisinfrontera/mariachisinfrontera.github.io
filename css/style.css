@@ -166,8 +166,9 @@ a{color:inherit;text-decoration:none;}
 
 /* ── VIDEOS ── */
 .videos-sec{background:var(--obsidian);}
+.videos-carousel-wrap{position:relative;}
 .videos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px;}
-.vid-card{background:var(--ink);border:1px solid rgba(201,151,42,.08);overflow:hidden;}
+.vid-card{background:var(--ink);border:1px solid rgba(201,151,42,.08);overflow:hidden;flex-shrink:0;}
 .vid-embed{aspect-ratio:16/9;}
 .vid-embed iframe{width:100%;height:100%;border:none;display:block;}
 .vid-label{padding:13px 16px;font-family:var(--ff-disp);font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--silver);opacity:.7;}
@@ -243,36 +244,49 @@ a{color:inherit;text-decoration:none;}
   .burger{display:flex;margin-left:auto;}
   .field-row{grid-template-columns:1fr;}
 
-  /* Band — compact horizontal rows on mobile */
+  /* Band — horizontal scroll carousel on mobile */
   .band-grid{
-    grid-template-columns:1fr;
-    gap:0;
-    border:1px solid rgba(201,151,42,.1);
+    display:flex!important;
+    flex-direction:row!important;
+    overflow-x:auto;
+    gap:14px;
+    padding-bottom:12px;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
   }
+  .band-grid::-webkit-scrollbar{display:none;}
   .member-card{
-    display:grid;
-    grid-template-columns:72px 1fr;
-    border:none;
-    border-bottom:1px solid rgba(201,151,42,.08);
-    transform:none!important;
-    transition:background .2s;
-  }
-  .member-card:last-child{border-bottom:none;}
-  .member-card:hover{transform:none!important;border-color:transparent;}
-  .mc-img{
-    width:72px;
-    height:72px;
-    aspect-ratio:1/1!important;
-    min-height:unset;
     flex-shrink:0;
+    width:160px;
+    scroll-snap-align:start;
+    transform:none!important;
   }
-  .mc-img img{object-position:center;}
+  .mc-img{aspect-ratio:1/1!important;height:160px;}
   .mc-body{padding:10px 12px;}
   .mc-name{font-size:.8rem;margin-bottom:1px;}
   .mc-role{font-size:.75rem;margin-bottom:4px;}
   .mc-bio{
-    font-size:.76rem;line-height:1.4;
-    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+    font-size:.75rem;line-height:1.4;
+    display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+  }
+  /* Videos — horizontal scroll carousel on mobile */
+  .videos-grid{
+    display:flex!important;
+    flex-direction:row!important;
+    overflow-x:auto;
+    gap:14px;
+    padding-bottom:12px;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .videos-grid::-webkit-scrollbar{display:none;}
+  .vid-card{
+    flex-shrink:0;
+    width:82vw;
+    max-width:340px;
+    scroll-snap-align:start;
   }
 }
 
