@@ -47,12 +47,12 @@ const SITE_TEXT = {
   members: [
     { name: "Jorge",    role: "Vihuela, Vocals", bio: "Soy Guapo mucho.", photo: "https://drive.google.com/file/d/1KzFU97SypEzlelTG_0WP5NIf3c-byS28/view" },
     { name: "Angelique", role: "Vocals",         bio: "Add a short biography about this member.", photo: "https://drive.google.com/file/d/1Z3w4VTxLGsIBVPUGbJAdVUjGoBZtzjh3/view" },
-    { name: "Amanda",   role: "Violin",          bio: "Add a short biography about this member.", photo: "https://drive.google.com/file/d/1clGUSsGanegpslgnLT67DTBdm6cSvkb4/view" },
-    { name: "Hector",   role: "Violin",          bio: "Add a short biography about this member.", photo: "https://drive.google.com/file/d/1WDXbmZwSv3x_0RUOGo0fcF6hmZ139bqY/view" },
-    { name: "Leonardo",   role: "Violin",          bio: "Add a short biography about this member.", photo: "https://drive.google.com/file/d/1hF4EhGKXO4V5b521HsyRy67JOUNiuhLx/view" },
-    { name: "Cleo",   role: "Violin",          bio: "Add a short biography about this member.", photo: "" },
-    { name: "Emily",    role: "Trumpet",         bio: "Add a short biography about this member.", photo: "https://drive.google.com/file/d/10biyVXGY8PEvJiGhy9WFafQPICzuz93G/view" },
-    { name: "David",    role: "Trumpet",         bio: "Add a short biography about this member.", photo: "https://drive.google.com/file/d/1HNDt3AzhBWDWuptYZ-YaOQgo1ZIGufMx/view" },
+    { name: "Amanda",   role: "Violín",          bio: "Add a short biography about this member.", photo: "https://drive.google.com/file/d/1clGUSsGanegpslgnLT67DTBdm6cSvkb4/view" },
+    { name: "Hector",   role: "Violín",          bio: "Add a short biography about this member.", photo: "https://drive.google.com/file/d/1WDXbmZwSv3x_0RUOGo0fcF6hmZ139bqY/view" },
+    { name: "Leonardo",   role: "Violín",          bio: "Add a short biography about this member.", photo: "https://drive.google.com/file/d/1hF4EhGKXO4V5b521HsyRy67JOUNiuhLx/view" },
+    { name: "Cleo",   role: "Violín",          bio: "Add a short biography about this member.", photo: "" },
+    { name: "Emily",    role: "Trompeta",         bio: "Add a short biography about this member.", photo: "https://drive.google.com/file/d/10biyVXGY8PEvJiGhy9WFafQPICzuz93G/view" },
+    { name: "David",    role: "Trompeta",         bio: "Add a short biography about this member.", photo: "https://drive.google.com/file/d/1HNDt3AzhBWDWuptYZ-YaOQgo1ZIGufMx/view" },
     { name: "Alex",     role: "Guitarrón",       bio: "Add a short biography about this member.", photo: "https://drive.google.com/file/d/1YMs4-4r1ZcuDfVs9RG26llGP1amkMt3u/view" }
   ],
 
@@ -77,7 +77,7 @@ const SITE_TEXT = {
   //   { file: "filename.jpg", caption: "Description" },
   gallery: [
     { file: "gallery-1.jpg", caption: "Performance at Victoria Festival" },
-    { file: "gallery-2.jpg",       caption: "Wedding Celebration" },
+    { file: "gallery-2.jpg", caption: "Wedding Celebration" },
     { file: "gallery-3.jpg", caption: "Cultural Event" },
     { file: "gallery-4.jpg", caption: "Private Party" },
     { file: "gallery-5.jpg", caption: "Outdoor Performance" },
@@ -91,8 +91,8 @@ const SITE_TEXT = {
   // Keep quotes and comma on each line.
   videos: [
     { id: "WfqlfYfFRzU", label: "Greek Fest, 2024" },
-    { id: "rdUy6x38yYg", label: "VARGAS def US, 2024" },
-    { id: "NCvJwzDQTBM",  label: "Wedding Celebration" }
+    { id: "rdUy6x38yYg", label: "test" },
+    { id: "NCvJwzDQTBM",  label: "test2" }
     // ADD NEW VIDEOS ABOVE THIS LINE
   ]
 
