@@ -388,7 +388,7 @@ async function loadGigs() {
       .map(function(row) {
         var cols  = row.match(/(".*?"|[^,]+)(?=,|$)/g) || [];
         var clean = cols.map(function(c) { return c.replace(/^"|"$/g, '').trim(); });
-        return { id: clean[0], name: clean[1], date: clean[2], venue: clean[3], visibility: clean[4], time: clean[5] || '' };
+        return { id: clean[0], name: clean[1], date: clean[2], venue: clean[3], visibility: clean[4], time: clean[5] || '', duration: parseInt(clean[6]) || 60, link: clean[7] || '' };
       })
       .filter(function(g) {
         if (!g.name || !g.date) return false;
