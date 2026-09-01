@@ -232,6 +232,109 @@ function extractYouTubeId(raw) {
   return m ? m[1] : null;
 }
 
+
+// ── Universal Carousel ────────────────────────────────────────────
+function buildCarousel(containerId, items, renderItem, opts) {
+  var container = document.getElementById(containerId);
+  if (!container || !items.length) return;
+  opts = opts || {};
+  var perPageDesktop = opts.perPage || 3;
+  var autoMs = opts.auto || 0;
+  var isMobile = window.innerWidth < 768;
+  var perPage = isMobile ? 1 : perPageDesktop;
+  var idx = 0;
+  var autoTimer = null;
+  var touchStartX = 0;
+
+  // Build HTML
+  var wrap = document.createElement('div');
+  wrap.className = 'carousel-wrap';
+  var outer = document.createElement('div');
+  outer.className = 'carousel-track-outer';
+  var track = document.createElement('div');
+  track.className = 'carousel-track';
+  items.forEach(function(item) {
+    var card = document.createElement('div');
+    card.className = 'carousel-card';
+    card.innerHTML = renderItem(item);
+    track.appendChild(card);
+  });
+  outer.appendChild(track);
+
+  var prevBtn = document.createElement('button');
+  prevBtn.className = 'carousel-btn prev'; prevBtn.innerHTML = '&#8249;'; prevBtn.setAttribute('aria-label','Previous');
+  var nextBtn = document.createElement('button');
+  nextBtn.className = 'carousel-btn next'; nextBtn.innerHTML = '&#8250;'; nextBtn.setAttribute('aria-label','Next');
+
+  var dotsWrap = document.createElement('div');
+  dotsWrap.className = 'carousel-dots';
+  var totalPages = Math.ceil(items.length / perPage);
+  for (var d = 0; d < totalPages; d++) {
+    var dot = document.createElement('button');
+    dot.className = 'carousel-dot' + (d===0?' active':'');
+    dot.setAttribute('data-page', d);
+    dot.setAttribute('aria-label', 'Page '+(d+1));
+    dotsWrap.appendChild(dot);
+  }
+
+  wrap.appendChild(prevBtn);
+  wrap.appendChild(outer);
+  wrap.appendChild(nextBtn);
+  container.innerHTML = '';
+  container.appendChild(wrap);
+  container.appendChild(dotsWrap);
+
+  function setCardWidths() {
+    var gap = 22;
+    var availW = outer.offsetWidth;
+    var cardW = (availW - gap * (perPage - 1)) / perPage;
+    var allCards = track.querySelectorAll('.carousel-card');
+    allCards.forEach(function(c) { c.style.minWidth = cardW + 'px'; c.style.maxWidth = cardW + 'px'; });
+    track.style.gap = gap + 'px';
+  }
+
+  function goTo(page) {
+    page = Math.max(0, Math.min(page, totalPages - 1));
+    idx = page;
+    var gap = 22;
+    var cardW = track.querySelector('.carousel-card').offsetWidth;
+    var offset = page * (cardW + gap) * perPage;
+    track.style.transform = 'translateX(-' + offset + 'px)';
+    dotsWrap.querySelectorAll('.carousel-dot').forEach(function(d, i) {
+      d.classList.toggle('active', i === page);
+    });
+    prevBtn.disabled = page === 0;
+    nextBtn.disabled = page >= totalPages - 1;
+  }
+
+  prevBtn.addEventListener('click', function() { goTo(idx - 1); resetAuto(); });
+  nextBtn.addEventListener('click', function() { goTo(idx + 1); resetAuto(); });
+  dotsWrap.querySelectorAll('.carousel-dot').forEach(function(dot) {
+    dot.addEventListener('click', function() { goTo(parseInt(this.getAttribute('data-page'))); resetAuto(); });
+  });
+
+  // Touch swipe
+  outer.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; }, {passive:true});
+  outer.addEventListener('touchend', function(e) {
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 40) { goTo(dx < 0 ? idx + 1 : idx - 1); resetAuto(); }
+  }, {passive:true});
+
+  function startAuto() {
+    if (!autoMs) return;
+    autoTimer = setInterval(function() { goTo(idx >= totalPages - 1 ? 0 : idx + 1); }, autoMs);
+  }
+  function resetAuto() { clearInterval(autoTimer); startAuto(); }
+
+  setTimeout(function() { setCardWidths(); goTo(0); startAuto(); }, 50);
+  window.addEventListener('resize', function() {
+    isMobile = window.innerWidth < 768;
+    perPage = isMobile ? 1 : perPageDesktop;
+    totalPages = Math.ceil(items.length / perPage);
+    setCardWidths(); goTo(0);
+  });
+}
+
 function buildVideos() {
   var grid = document.getElementById('videosGrid');
   if (!grid) return;
@@ -239,15 +342,15 @@ function buildVideos() {
     .map(function(v) { return { id: extractYouTubeId(v.id), label: v.label }; })
     .filter(function(v) { return v.id && !v.id.startsWith('YOUTUBE'); });
   if (!valid.length) {
-    grid.innerHTML = '<p style="color:rgba(208,208,208,.3);font-style:italic;text-align:center;padding:32px 0;grid-column:1/-1">Add YouTube video IDs to js/site-text.js to display videos here.</p>';
+    grid.innerHTML = '<p style="color:rgba(208,208,208,.3);font-style:italic;text-align:center;padding:32px 0">Add YouTube video IDs to js/site-text.js to display videos here.</p>';
     return;
   }
-  grid.innerHTML = valid.map(function(v) {
-    return '<div class="vid-card reveal">' +
+  buildCarousel('videosGrid', valid, function(v) {
+    return '<div class="vid-card">' +
       '<div class="vid-embed">' +
       '<iframe src="https://www.youtube-nocookie.com/embed/' + v.id + '" allowfullscreen loading="lazy" title="' + v.label + '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>' +
       '</div><div class="vid-label">' + v.label + '</div></div>';
-  }).join('');
+  }, { perPage: 3, auto: 5000 });
 }
 
 // ── Contact ───────────────────────────────────────────────
@@ -298,14 +401,19 @@ async function loadGigs() {
 
     list.innerHTML = gigs.map(function(g) {
       var d = new Date(g.date + 'T00:00:00');
-      var timeHtml = g.time ? '<div class="gig-time">🕐 ' + formatTime(g.time) + '</div>' : '<div class="gig-time" style="opacity:.5">🕐 Time TBD</div>';
+      var timeStr = g.time ? formatTime(g.time) : '';
+      var durStr  = g.time && g.duration ? ' (' + (g.duration===60?'1 hr':g.duration===90?'1.5 hr':g.duration===120?'2 hr':g.duration+' min') + ')' : '';
+      var timeHtml = g.time
+        ? '<div class="gig-time">🕐 ' + timeStr + durStr + '</div>'
+        : '<div class="gig-time" style="opacity:.5">🕐 Time TBD</div>';
       var mapsUrl = 'https://maps.google.com/?q=' + encodeURIComponent(g.venue);
+      var linkHtml = g.link ? '<a class="gig-link-btn" href="' + g.link + '" target="_blank" rel="noopener">More Info →</a>' : '';
       return '<div class="gig-row reveal">' +
         '<div class="gig-cal"><div class="gig-day">' + d.getDate() + '</div>' +
         '<div class="gig-month">' + MONTHS[d.getMonth()] + ' ' + d.getFullYear() + '</div></div>' +
         '<div class="gig-info"><div class="gig-name">' + g.name + '</div>' +
         '<a class="gig-venue" href="' + mapsUrl + '" target="_blank" rel="noopener">📍 ' + g.venue + '</a>' +
-        timeHtml + '</div></div>';
+        timeHtml + linkHtml + '</div></div>';
     }).join('');
 
     var ro = new IntersectionObserver(function(entries) {
