@@ -76,13 +76,13 @@ const SITE_TEXT = {
   // Option B — Upload directly to GitHub → images/ folder, then:
   //   { file: "filename.jpg", caption: "Description" },
   gallery: [
-    { file: "gallery-1.jpg", caption: "Performance at Victoria Festival" },
-    { file: "gallery-2.jpg", caption: "Wedding Celebration" },
-    { file: "gallery-3.jpg", caption: "Cultural Event" },
-    { file: "gallery-4.jpg", caption: "Private Party" },
-    { file: "gallery-5.jpg", caption: "Outdoor Performance" },
-    { file: "gallery-6.jpg", caption: "Band in Charro Suits" },
-    { file: "gallery-7.jpg", caption: "Band in Charro Suits" }
+    { file: "https://drive.google.com/file/d/1hPzjwj66LlayGJU50OOADbuclQSu-Lfu/view", caption: "Performance at Victoria Festival" },
+    { file: "https://drive.google.com/file/d/1jyr3nFNJsRJK6WXIGT90Dkv0SHzDRHV4/view", caption: "Wedding Celebration" },
+    { file: "https://drive.google.com/file/d/1Py5w4D3X26hEOKP5rtiJBdsU2IwRhpMt/view", caption: "Cultural Event" },
+    { file: "https://drive.google.com/file/d/1tGOZCVoaiJImn-g_9NJi-DyCyL7xYR02/view", caption: "Private Party" },
+    { file: "https://drive.google.com/file/d/1nt9HGZu2J7ZrRaIAU_urviTovpEJzY7C/view", caption: "Outdoor Performance" },
+    { file: "https://drive.google.com/file/d/1ZImhbWNnWR9QdZNykcy28lcjvggESvCL/view", caption: "Band in Charro Suits" },
+    { file: "https://drive.google.com/file/d/1Z3w4VTxLGsIBVPUGbJAdVUjGoBZtzjh3/view", caption: "Band in Charro Suits" }
     // ADD NEW PHOTOS ABOVE THIS LINE
   ],
 
