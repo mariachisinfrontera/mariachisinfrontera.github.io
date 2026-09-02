@@ -407,7 +407,7 @@ async function loadGigs() {
         ? '<div class="gig-time">🕐 ' + timeStr + durStr + '</div>'
         : '<div class="gig-time" style="opacity:.5">🕐 Time TBD</div>';
       var mapsUrl = 'https://maps.google.com/?q=' + encodeURIComponent(g.venue);
-      var linkHtml = g.link ? '<a class="gig-link-btn" href="' + g.link + '" target="_blank" rel="noopener">More Info →</a>' : '';
+      var linkHtml = g.link ? '<a class="gig-link-btn" href="' + g.link + '" target="_blank" rel="noopener">Link to Event Info →</a>' : '';
       return '<div class="gig-row reveal">' +
         '<div class="gig-cal"><div class="gig-day">' + d.getDate() + '</div>' +
         '<div class="gig-month">' + MONTHS[d.getMonth()] + ' ' + d.getFullYear() + '</div></div>' +
