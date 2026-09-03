@@ -149,11 +149,12 @@ function buildBand() {
   var grid = document.getElementById('bandGrid');
   if (!grid) return;
   var ph = ['🎺','🎻','🎸','🎵','🎸','🎤'];
-  grid.innerHTML = SITE_TEXT.members.map(function(m, i) {
+  buildCarousel('bandGrid', SITE_TEXT.members, function(m) {
+    var i = SITE_TEXT.members.indexOf(m);
     var src = m.photo ? resolvePhotoSrc(m.photo) : '';
-    return '<div class="member-card reveal">' +
+    return '<div class="member-card">' +
       '<div class="mc-img">' +
-      (src ? '<img src="' + src + '" alt="' + m.name + '" onload="this.nextElementSibling.style.display=\'none\'" onerror="this.style.display=\'none\'">' : '') +
+      (src ? '<img src="' + src + '" alt="' + m.name + '" onload="this.nextElementSibling.style.display='none'" onerror="this.style.display='none'">' : '') +
       '<div class="mc-img-ph">' + (ph[i] || '🎵') + '</div>' +
       '</div>' +
       '<div class="mc-body">' +
@@ -161,13 +162,13 @@ function buildBand() {
       '<div class="mc-role">' + m.role + '</div>' +
       '<p class="mc-bio">' + m.bio + '</p>' +
       '</div></div>';
-  }).join('');
+  }, { perPage: 3 });
 }
 
 // ── Gallery Slideshow — 10 second delay ──────────────────
 var slideIndex  = 0;
 var slideTimer  = null;
-var SLIDE_DELAY = 10000;
+var SLIDE_DELAY = 5000;
 
 function buildSlideshow() {
   var photos = SITE_TEXT.gallery;
@@ -176,6 +177,18 @@ function buildSlideshow() {
   var dots    = document.getElementById('slideDots');
   var caption = document.getElementById('slideCaption');
   if (!track) return;
+  // Add touch swipe support to gallery
+  var slideshow = document.getElementById('slideshow');
+  if (slideshow) {
+    var touchStartX = 0;
+    slideshow.addEventListener('touchstart', function(e) {
+      touchStartX = e.touches[0].clientX;
+    }, {passive: true});
+    slideshow.addEventListener('touchend', function(e) {
+      var dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 40) { stepSlide(dx < 0 ? 1 : -1); resetTimer(); }
+    }, {passive: true});
+  }
 
   track.innerHTML = photos.map(function(p, i) {
     var src = resolvePhotoSrc(p.file);
