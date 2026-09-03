@@ -223,6 +223,10 @@ a{color:inherit;text-decoration:none;}
 .field-group input[type="date"]{color-scheme:dark;}
 .field-group textarea{resize:vertical;min-height:110px;}
 .booking-form .cta-btn{align-self:flex-start;}
+.booking-form .cta-btn:disabled{opacity:.6;cursor:default;}
+.form-status{font-size:.9rem;margin-top:4px;min-height:1.2em;}
+.form-status.success{color:#7fbf7f;}
+.form-status.error{color:var(--red2);}
 
 /* ── FOOTER ── */
 .site-footer{background:var(--obsidian);border-top:1px solid rgba(201,151,42,.12);padding:52px 0 28px;}
