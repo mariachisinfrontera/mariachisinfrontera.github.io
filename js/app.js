@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
   buildGallery();
   buildVideos();
   buildContact();
+  bindBookingForm();
 
   // Admin links — show when adminUrl is set
   var adminUrl = SITE_TEXT.adminUrl;
@@ -345,6 +346,49 @@ function buildVideos() {
       '<iframe src="https://www.youtube-nocookie.com/embed/' + v.id + '" allowfullscreen loading="lazy" title="' + v.label + '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>' +
       '</div><div class="vid-label">' + v.label + '</div></div>';
   }, { perPage: 3, auto: 5000 });
+}
+
+// ── Booking form — submit via AJAX so we can show a real success/
+//    error message and actually clear the fields on success ──────
+function bindBookingForm() {
+  var form = document.getElementById('bookingForm');
+  if (!form) return;
+  var status = document.getElementById('bookingFormStatus');
+  var btn    = document.getElementById('bookingSubmitBtn');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var data = new FormData(form);
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    status.textContent = '';
+    status.className = 'form-status';
+
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(function(res) {
+      if (res.ok) {
+        form.reset();
+        status.textContent = 'Thank you! Your booking inquiry has been sent — we\'ll be in touch soon.';
+        status.className = 'form-status success';
+      } else {
+        return res.json().then(function(json) {
+          var msg = (json && json.errors && json.errors.length)
+            ? json.errors.map(function(er) { return er.message; }).join(', ')
+            : 'Something went wrong sending your message.';
+          throw new Error(msg);
+        });
+      }
+    }).catch(function(err) {
+      status.textContent = 'Sorry, we couldn\'t send that (' + err.message + '). Please email us directly at ' + SITE_TEXT.email + '.';
+      status.className = 'form-status error';
+    }).finally(function() {
+      btn.disabled = false;
+      btn.textContent = 'Send Booking Inquiry';
+    });
+  });
 }
 
 // ── Contact ───────────────────────────────────────────────
