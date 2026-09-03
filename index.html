@@ -160,7 +160,7 @@
         <div class="social-row" id="contactSocialRow"></div>
       </div>
       <div class="contact-right">
-        <form action="https://formspree.io/f/mojpgeav" method="POST" class="booking-form">
+        <form action="https://formspree.io/f/mykldnly" method="POST" class="booking-form" id="bookingForm">
           <div class="field-group">
             <label for="f-name">Your Name</label>
             <input type="text" id="f-name" name="name" required placeholder="Full name"/>
@@ -183,7 +183,8 @@
             <label for="f-msg">Message</label>
             <textarea id="f-msg" name="message" rows="4" placeholder="Tell us about your event…"></textarea>
           </div>
-          <button type="submit" class="cta-btn">Send Booking Inquiry</button>
+          <button type="submit" class="cta-btn" id="bookingSubmitBtn">Send Booking Inquiry</button>
+          <p id="bookingFormStatus" class="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
     </div>
