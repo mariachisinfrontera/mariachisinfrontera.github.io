@@ -339,7 +339,18 @@ function buildCarousel(containerId, items, renderItem, opts) {
   }
   function resetAuto() { clearInterval(autoTimer); startAuto(); }
 
-  setTimeout(function() { setCardWidths(); goTo(0); startAuto(); }, 50);
+  // Show items immediately as fallback, then initialize carousel
+  var allCards = track.querySelectorAll('.carousel-card');
+  allCards.forEach(function(c) { c.style.minWidth = '200px'; });
+  
+  function initCarousel() {
+    if (outer.offsetWidth === 0) {
+      setTimeout(initCarousel, 100);
+      return;
+    }
+    setCardWidths(); goTo(0); startAuto();
+  }
+  setTimeout(initCarousel, 100);
   window.addEventListener('resize', function() {
     isMobile = window.innerWidth < 768;
     perPage = isMobile ? 1 : perPageDesktop;
