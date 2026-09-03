@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
   buildSocials();
   buildAbout();
   buildBand();
-  buildSlideshow();
+  buildGallery();
   buildVideos();
   buildContact();
 
@@ -162,68 +162,27 @@ function buildBand() {
       '<div class="mc-role">' + m.role + '</div>' +
       '<p class="mc-bio">' + m.bio + '</p>' +
       '</div></div>';
-  }, { perPage: 3 });
+  }, { perPage: 3, auto: 5000 });
 }
 
-// ── Gallery Slideshow — 10 second delay ──────────────────
-var slideIndex  = 0;
-var slideTimer  = null;
-var SLIDE_DELAY = 5000;
-
-function buildSlideshow() {
+// ── Gallery — same carousel as Videos/Band: 3 up desktop, 1 mobile,
+//    arrows on desktop, swipe on mobile, auto-advances every 5s ──
+function buildGallery() {
+  var grid = document.getElementById('galleryGrid');
+  if (!grid) return;
   var photos = SITE_TEXT.gallery;
   if (!photos || !photos.length) return;
-  var track   = document.getElementById('slideTrack');
-  var dots    = document.getElementById('slideDots');
-  var caption = document.getElementById('slideCaption');
-  if (!track) return;
-  // Add touch swipe support to gallery
-  var slideshow = document.getElementById('slideshow');
-  if (slideshow) {
-    var touchStartX = 0;
-    slideshow.addEventListener('touchstart', function(e) {
-      touchStartX = e.touches[0].clientX;
-    }, {passive: true});
-    slideshow.addEventListener('touchend', function(e) {
-      var dx = e.changedTouches[0].clientX - touchStartX;
-      if (Math.abs(dx) > 40) { stepSlide(dx < 0 ? 1 : -1); resetTimer(); }
-    }, {passive: true});
-  }
-
-  track.innerHTML = photos.map(function(p, i) {
+  buildCarousel('galleryGrid', photos, function(p) {
     var src = resolvePhotoSrc(p.file);
-    return '<div class="slide ' + (i === 0 ? 'active' : '') + '" data-index="' + i + '">' +
-      '<img src="' + src + '" alt="' + (p.caption || '') + '" onerror="this.parentElement.classList.add(\'slide-missing\')">' +
-      '<div class="slide-missing-ph">📷</div></div>';
-  }).join('');
-
-  dots.innerHTML = photos.map(function(_, i) {
-    return '<button class="dot ' + (i === 0 ? 'active' : '') + '" onclick="goToSlide(' + i + ')" aria-label="Photo ' + (i+1) + '"></button>';
-  }).join('');
-
-  if (photos[0].caption) caption.textContent = photos[0].caption;
-  document.getElementById('slidePrev').onclick = function() { stepSlide(-1); resetTimer(); };
-  document.getElementById('slideNext').onclick = function() { stepSlide(1);  resetTimer(); };
-  startTimer();
+    return '<div class="gallery-card">' +
+      '<div class="gc-img">' +
+      '<img src="' + src + '" alt="' + (p.caption || '') + '" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">' +
+      '<div class="gc-img-ph" style="display:none">📷</div>' +
+      '</div>' +
+      (p.caption ? '<div class="gc-caption">' + p.caption + '</div>' : '') +
+      '</div>';
+  }, { perPage: 3, auto: 5000 });
 }
-
-function goToSlide(n) {
-  var photos  = SITE_TEXT.gallery;
-  var slides  = document.querySelectorAll('.slide');
-  var dotEls  = document.querySelectorAll('.dot');
-  var caption = document.getElementById('slideCaption');
-  if (!slides.length) return;
-  slides[slideIndex].classList.remove('active');
-  dotEls[slideIndex].classList.remove('active');
-  slideIndex = (n + photos.length) % photos.length;
-  slides[slideIndex].classList.add('active');
-  dotEls[slideIndex].classList.add('active');
-  caption.textContent = photos[slideIndex].caption || '';
-}
-
-function stepSlide(dir) { goToSlide(slideIndex + dir); }
-function startTimer()   { slideTimer = setInterval(function() { stepSlide(1); }, SLIDE_DELAY); }
-function resetTimer()   { clearInterval(slideTimer); startTimer(); }
 
 // ── Videos ────────────────────────────────────────────────
 function extractYouTubeId(raw) {
