@@ -154,7 +154,7 @@ function buildBand() {
     var src = m.photo ? resolvePhotoSrc(m.photo) : '';
     return '<div class="member-card">' +
       '<div class="mc-img">' +
-      (src ? '<img src="' + src + '" alt="' + m.name + '" onload="this.nextElementSibling.style.display='none'" onerror="this.style.display='none'">' : '') +
+      (src ? '<img src="' + src + '" alt="' + m.name + '" onload="this.nextElementSibling.style.display=\'none\'" onerror="this.style.display=\'none\'">' : '') +
       '<div class="mc-img-ph">' + (ph[i] || '🎵') + '</div>' +
       '</div>' +
       '<div class="mc-body">' +
