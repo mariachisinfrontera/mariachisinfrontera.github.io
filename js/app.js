@@ -310,11 +310,22 @@ function buildCarousel(containerId, items, renderItem, opts) {
     setCardWidths(); goTo(0); startAuto();
   }
   setTimeout(initCarousel, 100);
+  // Only react to real width changes (breakpoint crossed), not mobile
+  // browsers firing 'resize' on scroll when the address bar hides/shows —
+  // that was resetting the carousel back to slide 1 every time.
+  var lastWidth = window.innerWidth;
   window.addEventListener('resize', function() {
-    isMobile = window.innerWidth < 768;
-    perPage = isMobile ? 1 : perPageDesktop;
+    var newWidth = window.innerWidth;
+    if (newWidth === lastWidth) return; // height-only change (mobile scroll) — ignore
+    lastWidth = newWidth;
+    var newIsMobile = newWidth < 768;
+    var newPerPage  = newIsMobile ? 1 : perPageDesktop;
+    var perPageChanged = newPerPage !== perPage;
+    isMobile = newIsMobile;
+    perPage  = newPerPage;
     totalPages = Math.ceil(items.length / perPage);
-    setCardWidths(); goTo(0);
+    setCardWidths();
+    goTo(perPageChanged ? 0 : idx);
   });
 }
 
