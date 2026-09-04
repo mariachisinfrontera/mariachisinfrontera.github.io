@@ -50,7 +50,7 @@ const SITE_TEXT = {
     { name: "Amanda",   role: "Violín",          bio: "Add a short biography about this member.", photo: "https://drive.google.com/file/d/1clGUSsGanegpslgnLT67DTBdm6cSvkb4/view" },
     { name: "Hector",   role: "Violín",          bio: "Add a short biography about this member.", photo: "https://drive.google.com/file/d/1WDXbmZwSv3x_0RUOGo0fcF6hmZ139bqY/view" },
     { name: "Leonardo",   role: "Violín",          bio: "Add a short biography about this member.", photo: "https://drive.google.com/file/d/1hF4EhGKXO4V5b521HsyRy67JOUNiuhLx/view" },
-    { name: "Cleo",   role: "Violín",          bio: "Add a short biography about this member.", photo: "" },
+    { name: "Cleo",   role: "Violín",          bio: "Add a short biography about this member.", photo: "https://drive.google.com/file/d/1DyiDmbnXwdaXJwhKloZJJW18tQf6059g/view" },
     { name: "Emily",    role: "Trompeta",         bio: "Add a short biography about this member.", photo: "https://drive.google.com/file/d/10biyVXGY8PEvJiGhy9WFafQPICzuz93G/view" },
     { name: "David",    role: "Trompeta",         bio: "Add a short biography about this member.", photo: "https://drive.google.com/file/d/1HNDt3AzhBWDWuptYZ-YaOQgo1ZIGufMx/view" },
     { name: "Alex",     role: "Guitarrón",       bio: "Add a short biography about this member.", photo: "https://drive.google.com/file/d/1YMs4-4r1ZcuDfVs9RG26llGP1amkMt3u/view" }
