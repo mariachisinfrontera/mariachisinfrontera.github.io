@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
   buildVideos();
   buildContact();
   bindBookingForm();
+  populateTimeOptions();
 
   // Admin links — show when adminUrl is set
   var adminUrl = SITE_TEXT.adminUrl;
@@ -346,6 +347,23 @@ function buildVideos() {
       '<iframe src="https://www.youtube-nocookie.com/embed/' + v.id + '" allowfullscreen loading="lazy" title="' + v.label + '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>' +
       '</div><div class="vid-label">' + v.label + '</div></div>';
   }, { perPage: 3, auto: 5000 });
+}
+
+// ── Booking form time dropdown — half-hour intervals, 12:00 AM–11:30 PM ──
+function populateTimeOptions() {
+  var sel = document.getElementById('f-time');
+  if (!sel) return;
+  var opts = [];
+  for (var h = 0; h < 24; h++) {
+    for (var m = 0; m < 60; m += 30) {
+      var hour12 = h % 12 === 0 ? 12 : h % 12;
+      var ampm   = h < 12 ? 'AM' : 'PM';
+      var mm     = m === 0 ? '00' : '30';
+      var label  = hour12 + ':' + mm + ' ' + ampm;
+      opts.push('<option value="' + label + '">' + label + '</option>');
+    }
+  }
+  sel.insertAdjacentHTML('beforeend', opts.join(''));
 }
 
 // ── Booking form — submit via AJAX so we can show a real success/
